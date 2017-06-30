@@ -50,6 +50,10 @@ net.train(data, {
   errorThresh: 0.005,  // error threshold to reach
   iterations: 20000,   // maximum training iterations
   learningRate: 0.3    // learning rate
+  callback: function(data) {
+     console.log(data);
+  },
+  callbackPeriod: 10
 })
 ```
 
@@ -97,6 +101,8 @@ console.log(run.toString()); // copy and paste! no need to import brain.js
 ```javascript
 var net = new brain.NeuralNetwork({
   hiddenLayers: [4],
+  momentum: 0.1,
+  binaryTreshold: 0.5,
   learningRate: 0.6 // global learning rate, useful when training using streams
 });
 ```
