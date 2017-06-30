@@ -10,7 +10,11 @@
     "scripts": {
         "test-unit": "mocha test/unit",
         "test-cv": "mocha test/cross-validation --timeout 10000",
-        "test": "npm run test-unit && npm run test-cv"
+        "test": "npm run test-unit && npm run test-cv",
+        "dist": "babel lib --out-dir dist --source-maps",
+        "browser": "browserify ./browser.js -p licensify -o browser.js",
+        "browser-min": "browserify ./browser.js -p licensify -g uglifyify -o browser.min.js",
+        "make": "rm -fr ./dist && npm run dist && git add ./dist && npm run browser && npm run browser-min"
     },
     "main": "./lib/brain",
     "dependencies": {
